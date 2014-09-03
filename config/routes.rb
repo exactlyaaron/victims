@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   get '/' => redirect('/students')
 
+  get '/students/pick', to: 'students#pick', as: 'pick'
+
   resources :students
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

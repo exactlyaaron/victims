@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'fabrication'
 
 group :development, :test do
+  gem 'shoulda-matchers'
   gem 'rspec-rails'
 end
 

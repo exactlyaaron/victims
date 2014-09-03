@@ -5,6 +5,7 @@ feature "Adding a student" do
     click_on "Create Student"
     expect(current_path).to eq students_path
     expect(page).to have_content("The student, Billy has been created.")
+    expect(Student.first.called_on).to be nil
     within("ul#students") do
       page.should have_content("Billy")
     end
