@@ -26,4 +26,10 @@ RSpec.describe Student, :type => :model do
     end
     expect(Student.pick_victim).to eq student_3
   end
+
+  it "returns nil if no choice is available" do
+    Fabricate(:student, name: "Richmond", called_on: 1.hour.ago)
+    Fabricate(:student, name: "Rachel", called_on: 1.hour.ago)
+    expect(Student.pick_victim).to be nil
+  end
 end

@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
 
   def create
     @students = Student.all
-    @student = Student.new(name: params[:student][:name], called_on: nil)
+    @student = Student.new(name: params[:student][:name], called_on: 'not yet')
     if @student.save
       redirect_to students_path, notice: "The student, #{@student.name} has been created."
     else
@@ -24,8 +24,14 @@ class StudentsController < ApplicationController
     @students = Student.all
     @student = Student.new
     @picked = Student.pick_victim
-    flash.alert = "You called on #{@picked.name}"
-    render :index
+    if @picked == nil
+      flash.alert = "No one left to call on!"
+      render :index
+    else
+      @picked.update(called_on: Time.now)
+      flash.alert = "You called on #{@picked.name}"
+      render :index
+    end
   end
 
 end

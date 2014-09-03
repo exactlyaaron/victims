@@ -1,2 +1,6 @@
 %li
-  =student.name
+  - if student.called_on === nil
+    #{student.name}, Not yet called upon.
+  - else
+    #{student.name}, called on: #{time_ago_in_words(student.called_on)} ago
+
