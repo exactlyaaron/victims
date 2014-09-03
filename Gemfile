@@ -32,6 +32,8 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'simple_form'
 gem 'fabrication'
+gem 'foundation-rails'
+
 
 group :development, :test do
   gem 'timecop'

@@ -1,8 +1,8 @@
-= link_to "Pick Student", pick_path
+= link_to "Pick Student", pick_path, class: "button"
 
 %ul#students= render @students
 
 = simple_form_for @student do |s|
   = s.input :name
-  = s.submit "Create Student"
+  = s.submit "Create Student", class: "button"
 

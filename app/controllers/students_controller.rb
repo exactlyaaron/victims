@@ -32,7 +32,7 @@ class StudentsController < ApplicationController
       render :index
     else
       @picked.update(called_on: Time.now)
-      flash.alert = "You called on #{@picked.name}"
+      flash.notice = "You called on #{@picked.name}"
       render :index
     end
   end
