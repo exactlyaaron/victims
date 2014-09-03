@@ -11,8 +11,19 @@ class Student < ActiveRecord::Base
     possible_students.sample # Gives us a random student from the list
   end
 
-  # def not_called_on_today
-  #   Student.all
-  # end
+  def check_time
+    if self.called_on == nil
+      return
+    else
+      timeago = (Time.now-self.called_on).to_i
+      if timeago > 86400
+        puts "===================="
+        puts self.called_on
+        self.update(called_on: nil)
+      else
+        return
+      end
+    end
+  end
 
 end

@@ -2,6 +2,9 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    @students.each do |student|
+      student.check_time
+    end
     @student = Student.new
   end
 

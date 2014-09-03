@@ -29,4 +29,14 @@ feature "Picking a student" do
     click_on "Pick Student"
     expect(page).to have_content("No one left to call on")
   end
+
+  scenario "a day passes and called on resets" do
+    Fabricate(:student, name: "Richmond", called_on: 1.hour.ago)
+    visit '/'
+    click_on "Pick Student"
+    expect(page).to have_content("No one left to call on")
+    Timecop.travel(Time.now + 1.days)
+    visit '/'
+    expect(Student.first.called_on).to be nil
+  end
 end
