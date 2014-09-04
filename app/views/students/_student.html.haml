@@ -1,6 +1,6 @@
 %li
-  - if student.called_on === nil
-    #{student.name}, Not yet called upon.
+  - if student.called_on_today?
+    #{student.name}, Not yet called upon today.
   - else
     #{student.name}, called on #{time_ago_in_words(student.called_on)} ago
 

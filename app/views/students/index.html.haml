@@ -1,6 +1,6 @@
-= link_to "Pick Student", pick_path, class: "button"
+= link_to "Pick Student", pick_students_path, class: "button", method: "PUT"
 
-%ul#students= render @students
+%ul#students= render students
 
 = simple_form_for @student do |s|
   = s.input :name

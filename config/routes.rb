@@ -6,9 +6,13 @@ Rails.application.routes.draw do
 
   get '/' => redirect('/students')
 
-  get '/students/pick', to: 'students#pick', as: 'pick'
+  # put '/students/pick', to: 'students#pick', as: 'pick'
 
-  resources :students
+  resources :students do
+    collection do
+      put 'pick'
+    end
+  end
 
 
 
