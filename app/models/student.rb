@@ -10,7 +10,6 @@ class Student < ActiveRecord::Base
   end
 
   def self.pick_victim
-    # This assumes the not_called_on_today is a named scope, defined elsewhere in the class
     Student.not_called_on_today.order("RANDOM()").first
   end
 
