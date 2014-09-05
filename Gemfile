@@ -33,6 +33,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'fabrication'
 gem 'foundation-rails'
+gem 'unicorn'
 
 group :production do
   gem 'rails_12factor'
